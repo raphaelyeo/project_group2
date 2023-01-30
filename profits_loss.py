@@ -47,15 +47,15 @@ def profit_loss():
 
       # Use if/else statements to check whether profit difference is positive
       # If it is positive, append the deficit and its respective day into the .txt file
-      if profit_deficit1 > 0:
+      if profit_deficit1 >= 0:
          file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[1]}, AMOUNT: USD{profit_deficit1}")
-      if profit_deficit2 > 0:
+      if profit_deficit2 >= 0:
          file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[2]}, AMOUNT: USD{profit_deficit2}")
-      if profit_deficit3 > 0:
+      if profit_deficit3 >= 0:
          file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[3]}, AMOUNT: USD{profit_deficit3}")
-      if profit_deficit4 > 0:
+      if profit_deficit4 >= 0:
          file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[4]}, AMOUNT: USD{profit_deficit4}")
-      if profit_deficit5 > 0:
+      if profit_deficit5 >= 0:
          file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[5]}, AMOUNT: USD{profit_deficit5}")
-      
-
+      if profit_deficit1 == profit_deficit2 == profit_deficit3 == profit_deficit4 == profit_deficit5 < 0:
+         file2.writelines("\n[PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
