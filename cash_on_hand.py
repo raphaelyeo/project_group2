@@ -1,6 +1,5 @@
 from pathlib import Path
 import csv
-import write
 
 # Define function to calculate cash deficit
 def cash_hand():
@@ -14,6 +13,7 @@ def cash_hand():
 
     # Instantiate file path to current working directory
     fp_readcash = Path.cwd()/"project_group2"/"csv_reports"/"Cash on Hand.csv"
+    fp_write = Path.cwd()/"summary_report.txt"
 
     # Use mode "r" to read file
     with fp_readcash.open(mode="r", encoding="UTF8") as file:
@@ -41,7 +41,7 @@ def cash_hand():
         cash_deficit5 = (cash[4] - cash[5])
     
     # Use mode "a" to append data so as to not overwrite overheads data
-    with write.fp_write.open(mode="a", encoding="UTF-8") as file2:
+    with fp_write.open(mode="a", encoding="UTF-8") as file2:
 
         # Use if statements to check if cash deficit is positive
         # If positive, append the cash deficit and its day into the .txt file

@@ -1,6 +1,5 @@
 from pathlib import Path
 import csv
-import write
 
 # Define function to find highest overhead
 def overhead():
@@ -11,6 +10,7 @@ def overhead():
 
     # Instantiate file path to current working directory
     fp_readoverhead = Path.cwd()/"project_group2"/"csv_reports"/"Overheads.csv"
+    fp_write = Path.cwd()/"summary_report.txt"
 
     # Use mode "r" to read file
     with fp_readoverhead.open(mode="r", encoding="UTF8") as file:
@@ -51,7 +51,7 @@ def overhead():
             max_overhead_type = overhead_type[9]
 
     # Use mode "w" to write data into file because overheads goes first    
-    with write.fp_write.open(mode="w", encoding="UTF-8") as file2:
+    with fp_write.open(mode="w", encoding="UTF-8") as file2:
 
         # Write data into file, and convert overhead type to uppercase letters
         file2.writelines(f"[HIGHEST OVERHEADS] {max_overhead_type.upper()}: {max_percentage}%")

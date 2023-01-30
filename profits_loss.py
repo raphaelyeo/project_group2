@@ -1,6 +1,5 @@
 from pathlib import Path
 import csv
-import write
 
 # Define function to calculate profit deficit
 def profit_loss():
@@ -14,6 +13,7 @@ def profit_loss():
 
 # Instantiate file path to current working directory
    fp_readpl = Path.cwd()/"project_group2"/"csv_reports"/"Profit and Loss.csv"
+   fp_write = Path.cwd()/"summary_report.txt"
 
 # Use mode "r" to read file
    with fp_readpl.open(mode="r", encoding="UTF8") as file:
@@ -43,7 +43,7 @@ def profit_loss():
        profit_deficit5 = net_profit[4] - net_profit[5]
 
    # Using mode "a" to append data so as to not overwrite overhead data   
-   with write.fp_write.open(mode="a", encoding="UTF-8") as file2:
+   with fp_write.open(mode="a", encoding="UTF-8") as file2:
 
       # Use if/else statements to check whether profit difference is positive
       # If it is positive, append the deficit and its respective day into the .txt file
