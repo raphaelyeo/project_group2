@@ -8,9 +8,6 @@ def profit_loss():
    - No parameters required
    """
 
-   # Declare profit_deficit1-5 as global variables
-   global profit_deficit1, profit_deficit2, profit_deficit3, profit_deficit4, profit_deficit5
-
 # Instantiate file path to current working directory
    fp_readpl = Path.cwd()/"project_group2"/"csv_reports"/"Profit and Loss.csv"
    fp_write = Path.cwd()/"summary_report.txt"
@@ -19,43 +16,46 @@ def profit_loss():
    with fp_readpl.open(mode="r", encoding="UTF8") as file:
 
     # Read csv file to append day and net profit to their respective empty lists
-       reader = csv.reader(file)
+      reader = csv.reader(file)
 
     # Skip header
-       next(reader)
+      next(reader)
 
     # Create empty lists to store day and net profit
-       net_profit = []
-       dayp = []
+      net_profit = []
+      dayp = []
 
     # Convert values to int/float and append day and net profit to each empty list 
-       for row in reader:
+      for row in reader:
             row[4] = int(row[4])
             row[0] = float(row[0])
             net_profit.append(row[4])
             dayp.append(row[0])
 
-      # Calculate the differences in net profit between consecutive days
-       profit_deficit1 = net_profit[0] - net_profit[1]
-       profit_deficit2 = net_profit[1] - net_profit[2]
-       profit_deficit3 = net_profit[2] - net_profit[3]
-       profit_deficit4 = net_profit[3] - net_profit[4]
-       profit_deficit5 = net_profit[4] - net_profit[5]
+        # Initialise counter to 0
+      i = 0 
 
-   # Using mode "a" to append data so as to not overwrite overhead data   
-   with fp_write.open(mode="a", encoding="UTF-8") as file2:
+        # Create for loop to iterate over the number of values of net_profit
+        # -1 from the length of net_profit to skip the last value because future values are unknown
+      for values in range(len(net_profit)-1):
 
-      # Use if/else statements to check whether profit difference is positive
-      # If it is positive, append the deficit and its respective day into the .txt file
-      if profit_deficit1 >= 0:
-         file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[1]}, AMOUNT: USD{profit_deficit1}")
-      if profit_deficit2 >= 0:
-         file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[2]}, AMOUNT: USD{profit_deficit2}")
-      if profit_deficit3 >= 0:
-         file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[3]}, AMOUNT: USD{profit_deficit3}")
-      if profit_deficit4 >= 0:
-         file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[4]}, AMOUNT: USD{profit_deficit4}")
-      if profit_deficit5 >= 0:
-         file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[5]}, AMOUNT: USD{profit_deficit5}")
-      if profit_deficit1 < 0 and profit_deficit2 < 0 and profit_deficit3 < 0 and profit_deficit4 < 0 and profit_deficit5 < 0:
-         file2.writelines("\n[PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
+            # Calculate net_profit_difference by subtracting next value from current value
+            net_profit_difference = net_profit[values] - net_profit[values+1]
+
+            # Use mode "a" so that overheads data will not be overwritten
+            with fp_write.open(mode="a", encoding="UTF-8") as file2:
+                
+                # If net_profit_difference is positive, write its respective data into the .txt file
+                if net_profit_difference > 0:
+                    file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[values+1]}, AMOUNT: USD{net_profit_difference} ")
+
+                    # Add 1 to counter
+                    i +=1 
+      with fp_write.open(mode="a", encoding="UTF-8") as file2:
+
+         # If counter is 0, all net profit differences are negative
+         # This means that each day's net profit value is greater than the previous day's
+         # If such, report net profit surplus
+         if i == 0:
+            file2.writelines(f"\n[PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
+    
