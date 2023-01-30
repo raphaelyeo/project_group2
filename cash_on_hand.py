@@ -55,7 +55,7 @@ def cash_hand():
             file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[4]}, AMOUNT: USD{cash_deficit4} ")
         if cash_deficit5 > 0:
             file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[5]}, AMOUNT: USD{cash_deficit5} ")
-        if cash_deficit1 == cash_deficit2 == cash_deficit3 == cash_deficit4 == cash_deficit5 < 0:
+        if cash_deficit1 < 0 and cash_deficit2 < 0 and cash_deficit3 < 0 and cash_deficit4 < 0 and cash_deficit5 < 0:
             file2.writelines("\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
 
 

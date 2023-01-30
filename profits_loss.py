@@ -57,5 +57,5 @@ def profit_loss():
          file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[4]}, AMOUNT: USD{profit_deficit4}")
       if profit_deficit5 >= 0:
          file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[5]}, AMOUNT: USD{profit_deficit5}")
-      if profit_deficit1 == profit_deficit2 == profit_deficit3 == profit_deficit4 == profit_deficit5 < 0:
+      if profit_deficit1 < 0 and profit_deficit2 < 0 and profit_deficit3 < 0 and profit_deficit4 < 0 and profit_deficit5 < 0:
          file2.writelines("\n[PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
