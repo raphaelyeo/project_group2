@@ -46,15 +46,15 @@ def cash_hand():
         # Use if statements to check if cash deficit is positive
         # If positive, append the cash deficit and its day into the .txt file
         if cash_deficit1 > 0:
-            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[0]}, AMOUNT: USD{cash_deficit1} ")
+            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[1]}, AMOUNT: USD{cash_deficit1} ")
         if cash_deficit2 > 0:
-            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[1]}, AMOUNT: USD{cash_deficit2} ")
+            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[2]}, AMOUNT: USD{cash_deficit2} ")
         if cash_deficit3 > 0:
-            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[2]}, AMOUNT: USD{cash_deficit3} ")
+            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[3]}, AMOUNT: USD{cash_deficit3} ")
         if cash_deficit4 > 0:
-            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[3]}, AMOUNT: USD{cash_deficit4} ")
+            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[4]}, AMOUNT: USD{cash_deficit4} ")
         if cash_deficit5 > 0:
-            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[4]}, AMOUNT: USD{cash_deficit5} ")
+            file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[5]}, AMOUNT: USD{cash_deficit5} ")
                
 
 
