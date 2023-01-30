@@ -6,7 +6,7 @@ import write
 def overhead():
     """
     - This function finds the highest overhead type
-    - No parameters required
+    - No parameters required.
     """
 
     # Instantiate file path to current working directory
