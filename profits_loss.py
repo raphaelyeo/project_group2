@@ -9,7 +9,7 @@ def profit_loss():
    """
 
 # Instantiate file path to current working directory
-   fp_readpl = Path.cwd()/"project_group2"/"csv_reports"/"Profit and Loss.csv"
+   fp_readpl = Path.cwd()/"csv_reports"/"Profit and Loss.csv"
    fp_write = Path.cwd()/"summary_report.txt"
 
 # Use mode "r" to read file

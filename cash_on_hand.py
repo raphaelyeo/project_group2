@@ -9,7 +9,7 @@ def cash_hand():
         A string indicating either a cash surplus or deficit and its respective day and amount.
     """
     # Instantiate file path to current working directory
-    fp_readcash = Path.cwd()/"project_group2"/"csv_reports"/"Cash on Hand.csv"
+    fp_readcash = Path.cwd()/"csv_reports"/"Cash on Hand.csv"
     fp_write = Path.cwd()/"summary_report.txt"
 
     # Use mode "r" to read file

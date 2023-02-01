@@ -6,7 +6,7 @@ from pathlib import Path
 def find_highest_overhead():              
   
 # create a variable 'csv_file' and store the path to the Overheads.csv file
-    csv_file = Path.cwd() / "project_group2" / "csv_reports" / "Overheads.csv"
+    csv_file = Path.cwd() / "csv_reports" / "Overheads.csv"
 
 # create a variable 'txt_file' and store the path to the summary_report.txt file                                         
     txt_file = Path.cwd() / "summary_report.txt"
