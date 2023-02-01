@@ -1,39 +1,41 @@
-from pathlib import Path
-import csv
+# import csv module
+import csv                                 
+# import Path module from pathlib library
+from pathlib import Path                   
+# define a function named 'find_highest_overhead'
+def find_highest_overhead():              
+  
+# create a variable 'csv_file' and store the path to the Overheads.csv file
+    csv_file = Path.cwd() / "project_group2" / "csv_reports" / "Overheads.csv"
 
-# Define function to find highest overhead
-def overhead():
-    """
-    - This function finds the highest overhead type
-    - No parameters required.
-    """
-    # Instantiate file path to current working directory
-    fp_readoverhead = Path.cwd()/"project_group2"/"csv_reports"/"Overheads.csv"
-    fp_write = Path.cwd()/"summary_report.txt"
-
-    # Use mode "r" to read file
-    with fp_readoverhead.open(mode="r", encoding="UTF8") as file:
-        reader = csv.reader(file)
-
-        # Skip header
-        next(reader)
-
-        # Create empty lists to append overhead type and its percentage
-        overhead_type = []
-        percentage = []
-        for row in reader:
-            overhead_type.append(row[0])
+# create a variable 'txt_file' and store the path to the summary_report.txt file                                         
+    txt_file = Path.cwd() / "summary_report.txt"
+                                           
+ # create two empty lists, 'overhead_type' and 'percentage'    
+    overhead_type, percentage = [], []   
+  # open the csv file in read mode and encode in UTF8, store the file object in 'f'
+    with csv_file.open(mode="r", encoding="UTF8") as f:
+        
+ # create a reader object from the csv file 'f'       
+    reader = csv.reader(f)             
+# skip the header row       
+        next(reader)                      
+        for row in reader: 
+# loop through each row in the csv file
+            overhead_type.append(row[0])   
+# add the first column value (overhead type) to the 'overhead_type' list
             percentage.append(float(row[1]))
-        
-        # Use max() function and set key=float to find highest percentage
-        max_percentage = max(percentage, key=float)
-        
-        # Find the index of the highest percentage from percentage list
-        # Assign max_overhead_type variable to the highest percentage's overhead type by using the same index
-        max_overhead_type = overhead_type[percentage.index(max_percentage)]
+# add the second column value (percentage) as a float to the 'percentage' list
 
-    # Use mode "w" to write data into file because overheads goes first    
-    with fp_write.open(mode="w", encoding="UTF-8") as file2:
+# find the maximum value in the 'percentage' list and store it in 'max_percentage'
+        max_percentage = max(percentage)  
+# find the corresponding overhead type for the 'max_percentage' and store it in 'max_overhead'
+        max_overhead = overhead_type[percentage.index(max_percentage)]
 
-        # Write data into file, and convert overhead type to uppercase letters
-        file2.writelines(f"[HIGHEST OVERHEADS] {max_overhead_type.upper()}: {max_percentage}%")
+
+# open the txt file in write mode and encode in UTF8, store the file object in 'f'   
+    with txt_file.open(mode="w", encoding="UTF-8") as f:
+
+ # write the highest overhead type and its percentage in the format '[HIGHEST OVERHEADS] OVERHEAD_TYPE: PERCENTAGE%' to the txt file
+        f.write(f"[HIGHEST OVERHEADS] {max_overhead.upper()}: {max_percentage}%")
+                                           
