@@ -46,11 +46,12 @@ def profit_loss():
             with fp_write.open(mode="a", encoding="UTF-8") as file2:
                 
                 # If net_profit_difference is positive, write its respective data into the .txt file
-                if net_profit_difference > 0:
-                    file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[values+1]}, AMOUNT: USD{net_profit_difference} ")
+               if net_profit_difference > 0:
+                  file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[values+1]}, AMOUNT: USD{net_profit_difference} ")
 
                     # Add 1 to counter
-                    i +=1 
+                  i +=1 
+                
       with fp_write.open(mode="a", encoding="UTF-8") as file2:
 
          # If counter is 0, all net profit differences are negative
