@@ -3,10 +3,8 @@ import csv
 
 def cash_hand():
     """
-    This function calculates cash on hand difference based on cash amounts over multiple days.
-
-    Returns:
-        A string indicating either a cash surplus or deficit and its respective day and amount.
+    This function calculates cash on hand deficits based on cash amounts over multiple days.
+    No parameters required.
     """
     # Instantiate file path to current working directory
     fp_readcash = Path.cwd()/"csv_reports"/"Cash on Hand.csv"
