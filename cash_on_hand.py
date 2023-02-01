@@ -57,30 +57,3 @@ def cash_hand():
             # If such, report cash surplus
             if i == 0:
                 file2.writelines(f"\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
-                
-                   # Create for loop to iterate over the number of values of cash
-        # -1 from the length of cash to skip the last value because future values are unknown
-        for values in range(len(cash)-1):
-
-            # Calculate cash_difference by subtracting next value from current value
-            cash_difference = cash[values] - cash[values+1]
-
-            # Use mode "a" so that overheads data will not be overwritten
-            with fp_write.open(mode="a", encoding="UTF-8") as file2:
-                
-                # If cash_difference is positive, write its respective data into the .txt file
-                if cash_difference > 0:
-                    file2.writelines(f"\n[CASH DEFICIT] DAY: {dayc[values+1]}, AMOUNT: USD{cash_difference} ")
-                    
-                    # Add 1 to counter
-                    i +=1 
-                    
-        with fp_write.open(mode="a", encoding="UTF-8") as file2:
-
-            # If counter is 0, all cash differences are negative
-            # This means that each day's cash on hand value is greater than the previous day's
-            # If such, report cash surplus
-            if i == 0:
-                file2.writelines(f"\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
-                
-            
