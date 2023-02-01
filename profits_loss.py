@@ -32,11 +32,11 @@ def profit_loss():
             net_profit.append(row[4])
             dayp.append(row[0])
 
-        # Initialise counter to 0
+        # Initialise counter to 0.
       i = 0 
 
-        # Create for loop to iterate over the number of values of net_profit
-        # -1 from the length of net_profit to skip the last value because future values are unknown
+        # Create for loop to iterate over the number of values of net_profit.
+        # -1 from the length of net_profit to skip the last value because future values are unknown.
       for values in range(len(net_profit)-1):
 
             # Calculate net_profit_difference by subtracting next value from current value
@@ -45,17 +45,18 @@ def profit_loss():
             # Use mode "a" so that overheads data will not be overwritten
             with fp_write.open(mode="a", encoding="UTF-8") as file2:
                 
-                # If net_profit_difference is positive, write its respective data into the .txt file
+                # If net_profit_difference is positive, write its respective data into the .txt file.
                 if net_profit_difference > 0:
                     file2.writelines(f"\n[PROFIT DEFICIT] DAY: {dayp[values+1]}, AMOUNT: USD{net_profit_difference} ")
 
-                    # Add 1 to counter
+                    # Add 1 to counter.
                     i +=1 
       with fp_write.open(mode="a", encoding="UTF-8") as file2:
 
-         # If counter is 0, all net profit differences are negative
-         # This means that each day's net profit value is greater than the previous day's
-         # If such, report net profit surplus
+         # If counter is 0, all net profit differences are negative.
+         # This means that each day's net profit value is greater than the previous day's.
+         # If such, report net profit surplus.
          if i == 0:
             file2.writelines(f"\n[PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
+
     
