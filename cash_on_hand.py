@@ -58,42 +58,7 @@ def cash_hand():
             if i == 0:
                 file2.writelines(f"\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
                 
-                from pathlib import Path
-import csv
-
-def cash_hand():
-    """
-    This function calculates cash on hand difference based on cash amounts over multiple days.
-
-    Returns:
-        A string indicating either a cash surplus or deficit and its respective day and amount.
-    """
-    # Instantiate file path to current working directory
-    fp_readcash = Path.cwd()/"project_group2"/"csv_reports"/"Cash on Hand.csv"
-    fp_write = Path.cwd()/"summary_report.txt"
-
-    # Use mode "r" to read file
-    with fp_readcash.open(mode="r", encoding="UTF8") as file:
-        reader = csv.reader(file)
-        
-        # Skip header
-        next(reader)
-        
-        # Create empty list to store cash and day values
-        cash = []
-        dayc = []
-
-        # Convert day and cash to float/int respectively and append them to their empty list 
-        for row in reader:
-            row[1] = int(row[1])
-            row[0] = float(row[0])
-            cash.append(row[1])
-            dayc.append(row[0])
-        
-        # Initialise counter to 0
-        i = 0 
-
-        # Create for loop to iterate over the number of values of cash
+                   # Create for loop to iterate over the number of values of cash
         # -1 from the length of cash to skip the last value because future values are unknown
         for values in range(len(cash)-1):
 
@@ -117,4 +82,5 @@ def cash_hand():
             # If such, report cash surplus
             if i == 0:
                 file2.writelines(f"\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
-    
+                
+            
