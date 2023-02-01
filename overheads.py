@@ -4,7 +4,10 @@ import csv
 from pathlib import Path                   
 # define a function named 'find_highest_overhead'
 def find_highest_overhead():              
-  
+    """
+    -This function finds the highest overhead type
+    -No parameters required
+    """
 # create a variable 'csv_file' and store the path to the Overheads.csv file
     csv_file = Path.cwd() / "csv_reports" / "Overheads.csv"
 
