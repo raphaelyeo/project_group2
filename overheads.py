@@ -9,10 +9,10 @@ def find_highest_overhead():
     -No parameters required
     """
 # create a variable 'csv_file' and store the path to the Overheads.csv file
-    csv_file = Path.cwd() / "csv_reports" / "Overheads.csv"
+    csv_file = Path.cwd() /"csv_reports"/"Overheads.csv"
 
 # create a variable 'txt_file' and store the path to the summary_report.txt file                                         
-    txt_file = Path.cwd() / "summary_report.txt"
+    txt_file = Path.cwd() /"summary_report.txt"
                                            
  # create two empty lists, 'overhead_type' and 'percentage'    
     overhead_type, percentage = [], []   
@@ -41,4 +41,5 @@ def find_highest_overhead():
 
  # write the highest overhead type and its percentage in the format '[HIGHEST OVERHEADS] OVERHEAD_TYPE: PERCENTAGE%' to the txt file
         f.write(f"[HIGHEST OVERHEADS] {max_overhead.upper()}: {max_percentage}%")
+
                                            
