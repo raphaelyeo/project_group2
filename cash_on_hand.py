@@ -1,6 +1,7 @@
 from pathlib import Path
 import csv
 
+# File will be used as module
 def cash_hand():
     """
     This function calculates cash on hand deficits based on cash amounts over multiple days.
@@ -14,7 +15,7 @@ def cash_hand():
     with fp_readcash.open(mode="r", encoding="UTF8") as file:
         reader = csv.reader(file)
         
-        # Skip header
+        # Skip header   
         next(reader)
         
         # Create empty list to store cash and day values

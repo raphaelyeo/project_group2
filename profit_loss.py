@@ -1,6 +1,7 @@
 from pathlib import Path
 import csv
 
+# File will be used as module
 # Define function to calculate profit deficit
 def profit_loss():
    """
